@@ -85,26 +85,20 @@ class PDFPresentationMode {
     if (this.switchInProgress || this.active || !this.viewer.hasChildNodes()) {
       return false;
     }
-    this._addFullscreenChangeListeners();
-    this._setSwitchInProgress();
-    this._notifyStateChange();
 
-    if (this.container.requestFullscreen) {
-      this.container.requestFullscreen();
-    } else if (this.container.mozRequestFullScreen) {
-      this.container.mozRequestFullScreen();
-    } else if (this.container.webkitRequestFullscreen) {
-      this.container.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
-    } else if (this.container.msRequestFullscreen) {
-      this.container.msRequestFullscreen();
-    } else {
-      return false;
+    if (this.viewer.parentElement) {
+      if (this.viewer.parentElement.requestFullscreen) {
+        this.viewer.parentElement.requestFullscreen();
+      } else if (this.viewer.parentElement.mozRequestFullScreen) {
+        this.viewer.parentElement.mozRequestFullScreen();
+      } else if (this.viewer.parentElement.webkitRequestFullscreen) {
+        this.viewer.parentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+      } else if (this.viewer.parentElement.msRequestFullscreen) {
+        this.viewer.parentElement.msRequestFullscreen();
+      } else {
+        return false;
+      }
     }
-
-    this.args = {
-      page: this.pdfViewer.currentPageNumber,
-      previousScale: this.pdfViewer.currentScaleValue,
-    };
 
     return true;
   }
