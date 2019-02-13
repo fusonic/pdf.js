@@ -1,5 +1,5 @@
 {
-  "name": "pdf.js",
+  "name": "@fusonic/pdfjs",
   "version": "2.0.0",
   "devDependencies": {
     "@babel/core": "^7.2.2",
@@ -47,11 +47,16 @@
     "yargs": "^11.1.0"
   },
   "scripts": {
-    "test": "env SKIP_BABEL=true gulp lint unittestcli externaltest"
+    "test": "env SKIP_BABEL=true gulp lint unittestcli externaltest",
+    
+    "publish": "npm publish"
+
   },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/mozilla/pdf.js.git"
-  },
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "files": [
+    "build/minified"
+  ],
+  "publishConfig": {
+    "@fusonic/pdfjs:registry": "https://gitlab.com/api/v4/projects/10412330/packages/npm/"
+  }
 }
