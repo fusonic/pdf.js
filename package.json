@@ -1,6 +1,6 @@
 {
   "name": "@fusonic/pdf.js",
-  "version": "2.0.0",
+  "version": "2.0.0-1",
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/plugin-transform-modules-commonjs": "^7.2.0",
@@ -50,6 +50,7 @@
   },
   "scripts": {
     "build": "gulp generic && gulp minified && node scripts/move-build.js",
+    "build-and-publish": "npm run build && npm publish --access public",
     "test": "env SKIP_BABEL=true gulp lint unittestcli externaltest"
   },
   "license": "Apache-2.0",
