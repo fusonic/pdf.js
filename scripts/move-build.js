@@ -2,7 +2,7 @@ const fs = require('fs-extra');
 const del = require('del');
 const path = require('path');
 
-const resourcePath = path.join(__dirname)
+const resourcePath = path.join(__dirname, '..')
 
 del.sync([
     resourcePath + '/build/minified/**/*.map',
@@ -14,4 +14,4 @@ fs.copySync(
     path.join(resourcePath, 'dist'),
 );
 
-fs.remove(resourcePath, () => process.exit(code));
+fs.remove(path.join(resourcePath, 'build'));
