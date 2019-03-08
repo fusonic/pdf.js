@@ -1,6 +1,6 @@
 {
   "name": "@fusonic/pdf.js",
-  "version": "2.0.0",
+  "version": "2.0.0-2",
   "devDependencies": {
     "del": "^4.0.0",
     "fs-extra": "^7.0.1",
@@ -68,7 +68,8 @@
     "postinstall": "cross-env PUPPETEER_PRODUCT=firefox node node_modules/puppeteer/install.js",
     "test": "env SKIP_BABEL=true gulp lint unittestcli externaltest",
 
-    "build": "gulp generic && gulp minified && node scripts/move-build.js"
+    "build": "gulp generic && gulp minified && node scripts/move-build.js",
+    "build-and-publish": "npm run build && npm publish --access public"
   },
   "license": "Apache-2.0",
   "files": [
