@@ -1,5 +1,5 @@
 {
-  "name": "@fusonic/pdfjs",
+  "name": "@fusonic/pdf.js",
   "version": "2.0.0",
   "devDependencies": {
     "@babel/core": "^7.2.2",
@@ -11,6 +11,7 @@
     "autoprefixer": "^9.4.4",
     "babel-loader": "^8.0.5",
     "core-js": "^2.6.1",
+    "del": "^4.0.0",
     "escodegen": "^1.11.0",
     "eslint": "^5.12.0",
     "eslint-plugin-import": "^2.14.0",
@@ -18,6 +19,7 @@
     "eslint-plugin-no-unsanitized": "^3.0.2",
     "eslint-plugin-unicorn": "^6.0.1",
     "fancy-log": "^1.3.3",
+    "fs-extra": "^7.0.1",
     "globals": "^11.9.0",
     "gulp": "^4.0.0",
     "gulp-postcss": "^8.0.0",
@@ -47,16 +49,19 @@
     "yargs": "^11.1.0"
   },
   "scripts": {
-    "test": "env SKIP_BABEL=true gulp lint unittestcli externaltest",
-    
-    "publish": "npm publish"
-
+    "build": "gulp generic && gulp minified && node scripts/move-build.js",
+    "test": "env SKIP_BABEL=true gulp lint unittestcli externaltest"
   },
   "license": "Apache-2.0",
   "files": [
     "build/minified"
   ],
-  "publishConfig": {
-    "@fusonic/pdfjs:registry": "https://gitlab.com/api/v4/projects/10412330/packages/npm/"
-  }
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fusonic/pdf.js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fusonic/pdf.js/issues"
+  },
+  "homepage": "https://github.com/fusonic/pdf.js#readme"
 }
