@@ -4,7 +4,6 @@
   "devDependencies": {
     "del": "^4.0.0",
     "fs-extra": "^7.0.1",
-
     "@babel/core": "^7.11.6",
     "@babel/plugin-transform-modules-commonjs": "^7.10.4",
     "@babel/plugin-transform-runtime": "^7.11.5",
@@ -67,7 +66,6 @@
   "scripts": {
     "postinstall": "cross-env PUPPETEER_PRODUCT=firefox node node_modules/puppeteer/install.js",
     "test": "env SKIP_BABEL=true gulp lint unittestcli externaltest",
-
     "build": "gulp generic && gulp minified && node scripts/move-build.js",
     "build-and-publish": "npm run build && npm publish --access public"
   },
